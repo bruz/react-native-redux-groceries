@@ -1,4 +1,4 @@
-var store = require('react-native-simple-store')
+var offline = require('react-native-simple-store')
 
 var actions = exports = module.exports
 
@@ -33,7 +33,7 @@ function offlineItemsLoaded(items) {
 
 exports.loadOfflineItems = function removeItem(id) {
   return dispatch => {
-    store.get('items').then(items => {
+    offline.get('items').then(items => {
       dispatch(offlineItemsLoaded(items || []))
     })
   }

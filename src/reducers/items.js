@@ -1,5 +1,3 @@
-const store = require('react-native-simple-store')
-
 const {
   ADD_ITEM,
   REMOVE_ITEM,
@@ -23,8 +21,6 @@ module.exports = function items(state = initialState, action) {
   case ADD_ITEM:
     list = state.onlineList.concat([action.itemData]).sort((a, b) => b.time - a.time)
 
-    store.save('items', list)
-
     return {
       ...state,
       onlineList: list,
@@ -35,8 +31,6 @@ module.exports = function items(state = initialState, action) {
     const index = list.map(i => i.id).indexOf(action.id)
     list.splice(index, 1)
 
-    store.save('items', list)
-
     return {
       ...state,
       onlineList: list,
@@ -45,7 +39,8 @@ module.exports = function items(state = initialState, action) {
   case OFFLINE_ITEMS_LOADED:
     return {
       ...state,
-      offlineList: action.items
+      offlineList: action.items,
+      offlineLoaded: true
     }
   case CONNECTION_CHECKING:
     return {

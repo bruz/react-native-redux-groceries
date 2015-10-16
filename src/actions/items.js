@@ -42,7 +42,7 @@ exports.loadOfflineItems = function removeItem(id) {
 exports.checkConnection = function checkConnection() {
   return dispatch => {
     dispatch({type: actions.CONNECTION_CHECKING})
-    setTimeout(() => dispatch({type: actions.CONNECTION_CHECKED}), 1000)
+    setTimeout(() => dispatch({type: actions.CONNECTION_CHECKED}), 5000)
   }
 }
 

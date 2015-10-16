@@ -2,6 +2,7 @@ const React = require('react-native')
 const {
   Animated,
   Component,
+  NetInfo,
   StyleSheet,
   ListView,
   Text,
@@ -35,7 +36,13 @@ const Groceries = React.createClass({
       this.props.removeItem(snapshot.val().id)
     })
 
-    this.props.checkConnection()
+    NetInfo.isConnected.fetch().done(isConnected => {
+      if (isConnected) {
+        this.props.checkConnection()
+      } else {
+        this.props.goOffline()
+      }
+    })
 
     connectedRef.on("value", snap => {
       if (snap.val() === true) {
@@ -82,6 +89,7 @@ const Groceries = React.createClass({
       readonlyMessage = <Text style={styles.offline}>Offline</Text>
     } else {
       items = []
+      readonlyMessage = <Text style={styles.offline}>Loading...</Text>
     }
 
     return (

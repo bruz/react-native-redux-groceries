@@ -1,53 +1,76 @@
 # Groceries
 
-A simple grocery list app using React Native, Redux, Firebase, and Async Storage for offline data. It currently only works on iOS, but not Android. Once [this commit](https://github.com/facebook/react-native/commit/f4857a6d4237014cd66c213804ae54a99d71efaa) makes it into a React Native release it ought to work on Android.
+A simple grocery list app using React Native, Redux, Firebase, and Async Storage for offline data. It works on both iOS and Android.
 
 ## Install
 
 Built and tested with:
 
 * OSX
-* Xcode 7
 * Node 4.1.1
+* Xcode 7
+* Android SDK
 
 A [Firebase](https://www.firebase.com) account is also needed.
 
 Run:
 
-    git clone git@bitbucket.org:bruzilla/groceries.git
-    cd groceries
-    npm install
+```bash
+git clone git@bitbucket.org:bruzilla/groceries.git
+cd groceries
+npm install
+```
 
 Configure:
 
-    cp config.js.example config.js
+```bash
+cp config.js.example config.js
+```
 
 Edit config.js to have the URL of your Firebase app.
 
-## Run
+## Develop on iOS
 
-    open ios/Groceries.xcodeproj
+```bash
+open ios/Groceries.xcodeproj
+```
 
 This will launch Xcode. Just choose a device a press run.
 
-## Build and install on device
+## Develop on Android
+
+* Follow the [React Native Android setup guide](https://facebook.github.io/react-native/docs/android-setup.html).
+* Once you have a running emulator, run:
+
+```bash
+react-native run-android
+```
+
+## Build and install on an iOS device
 
 * Run:
 
-
-    react-native bundle --minify
+```bash
+react-native bundle --minify
+```
 
 * In AppDelegate.m, comment out:
 
-
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+```bash
+jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+```
 
 * Then uncomment this in AppDelegate.m:
 
-
-    //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+```bash
+//jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+```
 
 * In the Xcode menu, go to Product -> Scheme -> Edit Scheme..., and under Run change the Build Configuration to Release.
 * Choose your device in Xcode and run it on there.
 
 To get back to development mode, just undo these changes.
+
+## Build and install on an Android device
+
+It hasn't been testing with this app, but the [React Native APK signing instructions](https://facebook.github.io/react-native/docs/signed-apk-android.html) may work.

@@ -29,7 +29,7 @@ class Item extends Component {
     this.state.pan.flattenOffset()
     let x = this.state.pan.x._value
     if (Math.abs(x) > 50) {
-      this.refs.wrapper.measure((ox, oy, width, height) => {
+      this.refs.wrapper.measure((ox, oy, width) => {
         let newX
         if (x > 0) {
           newX = width
@@ -60,18 +60,18 @@ class Item extends Component {
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: () => this.props.removable,
 
-      onPanResponderGrant: (e, gestureState) => {
+      onPanResponderGrant: () => {
         this.state.pan.setOffset({x: this.state.pan.x._value})
         this.state.pan.setValue({x: 0})
       },
 
       onPanResponderMove: Animated.event([
-        null, {dx: this.state.pan.x, dy: this.state.pan.y},
+        null, {dx: this.state.pan.x, dy: this.state.pan.y}
       ]),
 
-      onPanResponderRelease: (e, {vx, vy}) => this._checkForRemoval(),
+      onPanResponderRelease: () => this._checkForRemoval(),
 
-      onPanResponderTerminate: (e, {vx, vy}) => this._checkForRemoval()
+      onPanResponderTerminate: () => this._checkForRemoval()
     })
   }
 
@@ -111,12 +111,12 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: '#CCCCCC',
+    backgroundColor: '#CCCCCC'
   },
   text: {
     flex: 1,
     fontSize: 20
-  },
+  }
 })
 
 module.exports = Item

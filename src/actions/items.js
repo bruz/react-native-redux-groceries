@@ -31,7 +31,7 @@ function offlineItemsLoaded(items) {
   }
 }
 
-exports.loadOfflineItems = function removeItem(id) {
+exports.loadOfflineItems = function loadOfflineItems() {
   return dispatch => {
     offline.get('items').then(items => {
       dispatch(offlineItemsLoaded(items || []))

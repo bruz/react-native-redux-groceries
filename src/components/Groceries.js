@@ -1,13 +1,11 @@
 const React = require('react-native')
 const {
-  Animated,
-  Component,
   NetInfo,
   StyleSheet,
   ListView,
   Text,
   TextInput,
-  View,
+  View
 } = React
 const Firebase = require('firebase')
 const config = require('../../config')
@@ -44,7 +42,7 @@ const Groceries = React.createClass({
       }
     })
 
-    connectedRef.on("value", snap => {
+    connectedRef.on('value', snap => {
       if (snap.val() === true) {
         this.props.goOnline()
       } else {
@@ -63,7 +61,7 @@ const Groceries = React.createClass({
 
   _add: function() {
     const id = Math.random().toString(36).substring(7)
-    itemRef = itemsRef.child(id)
+    const itemRef = itemsRef.child(id)
 
     itemRef.set({
       id,

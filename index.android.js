@@ -5,7 +5,7 @@ const configureStore = require('./src/store/configureStore')
 
 const {
   Component,
-  AppRegistry,
+  AppRegistry
 } = React
 
 const store = configureStore()

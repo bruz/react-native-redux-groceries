@@ -2,6 +2,10 @@
 
 A simple grocery list app using React Native, Redux, Firebase, and Async Storage for offline data. It works on both iOS and Android.
 
+[![Code Climate](https://codeclimate.com/github/bruz/react-native-redux-groceries/badges/gpa.svg)](https://codeclimate.com/github/bruz/react-native-redux-groceries)
+[![Dependency Status](https://david-dm.org/bruz/react-native-redux-groceries.svg)](https://david-dm.org/bruz/react-native-redux-groceries)
+[![MIT License](https://img.shields.io/github/license/bruz/react-native-redux-groceries.svg)](https://github.com/bruz/react-native-redux-groceries/blob/master/LICENSE)
+
 ## Install
 
 Built and tested with:

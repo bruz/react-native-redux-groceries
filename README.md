@@ -80,3 +80,7 @@ To get back to development mode, just undo these changes.
 ## Build and install on an Android device
 
 It hasn't been testing with this app, but the [React Native APK signing instructions](https://facebook.github.io/react-native/docs/signed-apk-android.html) may work.
+
+## Credits
+
+Grocery bag icon by [Claire Jones from the Noun Project](https://thenounproject.com/hivernoir)

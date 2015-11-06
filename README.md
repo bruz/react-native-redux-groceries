@@ -6,6 +6,8 @@ A simple grocery list app using React Native, Redux, Firebase, and Async Storage
 [![Dependency Status](https://david-dm.org/bruz/react-native-redux-groceries.svg)](https://david-dm.org/bruz/react-native-redux-groceries)
 [![MIT License](https://img.shields.io/github/license/bruz/react-native-redux-groceries.svg)](https://github.com/bruz/react-native-redux-groceries/blob/master/LICENSE)
 
+![demo](demo.gif)
+
 ## Install
 
 Built and tested with:

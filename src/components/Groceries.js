@@ -1,12 +1,12 @@
 const React = require('react-native')
 const {
-  NetInfo,
   StyleSheet,
   ListView,
   Text,
   TextInput,
   View
 } = React
+const NetInfo = React.NativeModules.NetInfo
 const Firebase = require('firebase')
 const config = require('../../config')
 const Item = require('./Item')
@@ -34,13 +34,17 @@ const Groceries = React.createClass({
       this.props.removeItem(snapshot.val().id)
     })
 
-    NetInfo.isConnected.fetch().done(isConnected => {
-      if (isConnected) {
-        this.props.checkConnection()
-      } else {
-        this.props.goOffline()
-      }
-    })
+    if (NetInfo) {
+      NetInfo.isConnected.fetch().done(isConnected => {
+        if (isConnected) {
+          this.props.checkConnection()
+        } else {
+          this.props.goOffline()
+        }
+      })
+    } else {
+      this.props.checkConnection()
+    }
 
     connectedRef.on('value', snap => {
       if (snap.val() === true) {

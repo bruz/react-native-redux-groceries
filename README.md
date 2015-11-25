@@ -57,7 +57,7 @@ react-native run-android
 * Run:
 
 ```bash
-react-native bundle --minify
+react-native bundle --entry-file index.ios.js --platform ios --minify --bundle-output ios/main.jsbundle
 ```
 
 * In AppDelegate.m, comment out:

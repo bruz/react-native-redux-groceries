@@ -2,11 +2,11 @@ const React = require('react-native')
 const {
   StyleSheet,
   ListView,
+  NetInfo,
   Text,
   TextInput,
   View
 } = React
-const NetInfo = React.NativeModules.NetInfo
 const Firebase = require('firebase')
 const config = require('../../config')
 const Item = require('./Item')

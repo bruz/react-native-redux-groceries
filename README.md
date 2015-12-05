@@ -22,7 +22,7 @@ A [Firebase](https://www.firebase.com) account is also needed.
 Run:
 
 ```bash
-git clone git@bitbucket.org:bruzilla/groceries.git
+git clone https://github.com/bruz/react-native-redux-groceries.git
 cd groceries
 npm install
 ```

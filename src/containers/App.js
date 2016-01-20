@@ -1,5 +1,5 @@
 const { bindActionCreators } = require('redux')
-const { connect } = require('react-redux/native')
+const { connect } = require('react-redux')
 const Groceries = require('../components/Groceries')
 const ItemsActions = require('../actions/items')
 

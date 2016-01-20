@@ -1,5 +1,5 @@
 const React = require('react-native')
-const { Provider } = require('react-redux/native')
+const { Provider } = require('react-redux')
 const App = require('./src/containers/App')
 const configureStore = require('./src/store/configureStore')
 
@@ -14,7 +14,7 @@ class Groceries extends Component {
   render() {
     return (
       <Provider store={store}>
-        {() => <App />}
+        <App />
       </Provider>
     )
   }

@@ -61,6 +61,7 @@ module.exports = function items(state = initialState, action) {
   case CONNECTION_OFFLINE:
     return {
       ...state,
+      connectionChecked: true,
       connected: false
     }
   default:

@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "firebase": "^2.4.1",
-    "react-native": "^0.20.0",
+    "react-native": "^0.21.0",
     "react-native-simple-store": "^0.1.0",
     "react-redux": "^4.4.0",
     "redux": "^3.3.1",

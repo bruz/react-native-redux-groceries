@@ -108,6 +108,7 @@ const Groceries = React.createClass({
 
         <ListView
           dataSource={this.dataSource.cloneWithRows(items)}
+          enableEmptySections={true}
           renderRow={this.renderRow}
         />
       </View>

@@ -1,14 +1,13 @@
-const React = require('react-native')
-const {
+import React, {
   Animated,
   Component,
-  StyleSheet,
   PanResponder,
+  StyleSheet,
   Text,
   View
-} = React
+} from 'react-native'
 
-class Item extends Component {
+export default class Item extends Component {
   constructor(props) {
     super(props)
 
@@ -118,5 +117,3 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 })
-
-module.exports = Item

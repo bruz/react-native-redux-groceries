@@ -1,9 +1,9 @@
-const { createStore, applyMiddleware } = require('redux')
-const thunk = require('redux-thunk').default
-const reducer = require('../reducers')
-const syncOffline = require('./syncOffline')
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import reducer from '../reducers'
+import syncOffline from './syncOffline'
 
-module.exports = function configureStore(initialState) {
+export default function configureStore(initialState) {
   const store = createStore(
     reducer,
     applyMiddleware(thunk)

@@ -1,12 +1,7 @@
-const React = require('react-native')
-const { Provider } = require('react-redux')
-const App = require('./src/containers/App')
-const configureStore = require('./src/store/configureStore')
-
-const {
-  Component,
-  AppRegistry
-} = React
+import React, { Component, AppRegistry } from 'react-native'
+import { Provider } from 'react-redux'
+import App from './src/containers/App'
+import configureStore from './src/store/configureStore'
 
 const store = configureStore()
 

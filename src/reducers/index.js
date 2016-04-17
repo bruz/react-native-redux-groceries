@@ -1,8 +1,6 @@
-const { combineReducers } = require('redux')
-const items = require('./items')
+import { combineReducers } from 'redux'
+import items from './items'
 
-const rootReducer = combineReducers({
+export default combineReducers({
   items
 })
-
-module.exports = rootReducer

@@ -1,4 +1,4 @@
-const {
+import {
   ADD_ITEM,
   REMOVE_ITEM,
   OFFLINE_ITEMS_LOADED,
@@ -6,7 +6,7 @@ const {
   CONNECTION_CHECKED,
   CONNECTION_ONLINE,
   CONNECTION_OFFLINE
-} = require('../actions/items')
+} from '../actions/items'
 
 const initialState = {
   onlineList: [],
@@ -14,9 +14,10 @@ const initialState = {
   connectionChecked: false
 }
 
-module.exports = function items(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   let list
 
+  console.log(action)
   switch (action.type) {
   case ADD_ITEM:
     list = state.onlineList.concat([action.itemData]).sort((a, b) => b.time - a.time)

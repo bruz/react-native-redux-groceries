@@ -1,37 +1,35 @@
-var offline = require('react-native-simple-store')
+import offline from 'react-native-simple-store'
 
-var actions = exports = module.exports
+export const ADD_ITEM = 'ADD_ITEM'
+export const REMOVE_ITEM = 'REMOVE_ITEM'
+export const OFFLINE_ITEMS_LOADED = 'OFFLINE_ITEMS_LOADED'
+export const CONNECTION_CHECKING = 'CONNECTION_CHECKING'
+export const CONNECTION_CHECKED = 'CONNECTION_CHECKED'
+export const CONNECTION_ONLINE = 'CONNECTION_ONLINE'
+export const CONNECTION_OFFLINE = 'CONNECTION_OFFLINE'
 
-exports.ADD_ITEM = 'ADD_ITEM'
-exports.REMOVE_ITEM = 'REMOVE_ITEM'
-exports.OFFLINE_ITEMS_LOADED = 'OFFLINE_ITEMS_LOADED'
-exports.CONNECTION_CHECKING = 'CONNECTION_CHECKING'
-exports.CONNECTION_CHECKED = 'CONNECTION_CHECKED'
-exports.CONNECTION_ONLINE = 'CONNECTION_ONLINE'
-exports.CONNECTION_OFFLINE = 'CONNECTION_OFFLINE'
-
-exports.addItem = function addItem(itemData) {
+export function addItem(itemData) {
   return {
-    type: actions.ADD_ITEM,
+    type: ADD_ITEM,
     itemData: itemData
   }
 }
 
-exports.removeItem = function removeItem(id) {
+export function removeItem(id) {
   return {
-    type: actions.REMOVE_ITEM,
+    type: REMOVE_ITEM,
     id: id
   }
 }
 
 function offlineItemsLoaded(items) {
   return {
-    type: actions.OFFLINE_ITEMS_LOADED,
+    type: OFFLINE_ITEMS_LOADED,
     items: items
   }
 }
 
-exports.loadOfflineItems = function loadOfflineItems() {
+export function loadOfflineItems() {
   return dispatch => {
     offline.get('items').then(items => {
       dispatch(offlineItemsLoaded(items || []))
@@ -39,21 +37,21 @@ exports.loadOfflineItems = function loadOfflineItems() {
   }
 }
 
-exports.checkConnection = function checkConnection() {
+export function checkConnection() {
   return dispatch => {
-    dispatch({type: actions.CONNECTION_CHECKING})
-    setTimeout(() => dispatch({type: actions.CONNECTION_CHECKED}), 5000)
+    dispatch({type: CONNECTION_CHECKING})
+    setTimeout(() => dispatch({type: CONNECTION_CHECKED}), 5000)
   }
 }
 
-exports.goOnline = function goOnline() {
+export function goOnline() {
   return {
-    type: actions.CONNECTION_ONLINE
+    type: CONNECTION_ONLINE
   }
 }
 
-exports.goOffline = function goOffline() {
+export function goOffline() {
   return {
-    type: actions.CONNECTION_OFFLINE
+    type: CONNECTION_OFFLINE
   }
 }

@@ -1,7 +1,7 @@
-const { bindActionCreators } = require('redux')
-const { connect } = require('react-redux')
-const Groceries = require('../components/Groceries')
-const ItemsActions = require('../actions/items')
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import Groceries from '../components/Groceries'
+import * as ItemsActions from '../actions/items'
 
 function mapStateToProps(state) {
   return {
@@ -16,4 +16,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ItemsActions, dispatch)
 }
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Groceries)
+export default connect(mapStateToProps, mapDispatchToProps)(Groceries)

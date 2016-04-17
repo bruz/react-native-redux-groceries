@@ -1,6 +1,6 @@
-const offline = require('react-native-simple-store')
+import offline from 'react-native-simple-store'
 
-module.exports = function(store) {
+export default function(store) {
   let currentItems
 
   store.subscribe(() => {

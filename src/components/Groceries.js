@@ -1,27 +1,29 @@
-const React = require('react-native')
-const {
-  StyleSheet,
+import React, {
+  Component,
   ListView,
   NetInfo,
+  StyleSheet,
   Text,
   TextInput,
   View
-} = React
-const Firebase = require('firebase')
-const config = require('../../config')
-const Item = require('./Item')
+} from 'react-native'
+import Firebase from 'firebase'
+import config from '../../config'
+import Item from './Item'
 
 const itemsRef = new Firebase(`${ config.FIREBASE_ROOT }/items`)
 const connectedRef = new Firebase(`${ config.FIREBASE_ROOT }/.info/connected`)
 
-const Groceries = React.createClass({
-  getInitialState: function() {
-    return {
+export default class Groceries extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
       newItem: ''
     }
-  },
+  }
 
-  componentWillMount: function() {
+  componentWillMount() {
     this.dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
     this.props.loadOfflineItems()
@@ -53,17 +55,24 @@ const Groceries = React.createClass({
         this.props.goOffline()
       }
     })
-  },
+  }
 
-  renderRow: function(rowData) {
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('NEXT PROPS')
+  //   console.log(nextProps)
+
+  // }
+
+  renderRow(rowData) {
+    console.log(this.props.connected)
     return (
       <Item name={rowData.title}
             removable={this.props.connected}
             onRemove={() => this._remove(rowData.id)} />
     )
-  },
+  }
 
-  _add: function() {
+  _add() {
     const id = Math.random().toString(36).substring(7)
     const itemRef = itemsRef.child(id)
 
@@ -76,13 +85,15 @@ const Groceries = React.createClass({
     this.setState({newItem: ''})
 
     setTimeout(() => this.refs.newItem.focus(), 1)
-  },
+  }
 
-  _remove: function(id) {
+  _remove(id) {
     itemsRef.child(id).remove()
-  },
+  }
 
-  render: function() {
+  render() {
+    console.log('PROPS!')
+    console.log(this.props)
     let items, readonlyMessage
     if (this.props.connected) {
       items = this.props.onlineItems
@@ -109,12 +120,12 @@ const Groceries = React.createClass({
         <ListView
           dataSource={this.dataSource.cloneWithRows(items)}
           enableEmptySections={true}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
         />
       </View>
     )
   }
-})
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -143,5 +154,3 @@ const styles = StyleSheet.create({
     paddingBottom: 5
   }
 })
-
-module.exports = Groceries

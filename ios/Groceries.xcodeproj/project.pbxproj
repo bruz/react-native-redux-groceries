@@ -518,7 +518,10 @@
 				);
 				INFOPLIST_FILE = Groceries/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bruzilla.Groceries;
 				PRODUCT_NAME = Groceries;
 			};

@@ -1,5 +1,5 @@
-import React, {
-  Component,
+import React, { Component } from 'react'
+import {
   ListView,
   NetInfo,
   StyleSheet,
@@ -36,7 +36,7 @@ export default class Groceries extends Component {
       this.props.removeItem(snapshot.val().id)
     })
 
-    if (React.NativeModules.NetInfo) {
+    if (NetInfo) {
       NetInfo.isConnected.fetch().done(isConnected => {
         if (isConnected) {
           this.props.checkConnection()
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   newItem: {
     backgroundColor: '#FFFFFF',
-    height: 40,
+    height: 42,
     borderColor: '#CCCCCC',
     borderWidth: 1,
     marginBottom: 10,

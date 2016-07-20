@@ -17,7 +17,7 @@ Built and tested with:
 * Xcode 7.3
 * Android SDK
 
-A [Firebase](https://www.firebase.com) account is also needed.
+A [Firebase](https://firebase.google.com) account is also needed.
 
 Run:
 
@@ -33,7 +33,7 @@ Configure:
 cp config.js.example config.js
 ```
 
-Edit config.js to have the URL of your Firebase app.
+Update config.js with your Firebase app credentials.
 
 ## Develop
 

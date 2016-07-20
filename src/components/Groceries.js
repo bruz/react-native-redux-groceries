@@ -7,12 +7,18 @@ import {
   TextInput,
   View
 } from 'react-native'
-import Firebase from 'firebase'
+import { initializeApp } from 'firebase'
 import config from '../../config'
 import Item from './Item'
 
-const itemsRef = new Firebase(`${ config.FIREBASE_ROOT }/items`)
-const connectedRef = new Firebase(`${ config.FIREBASE_ROOT }/.info/connected`)
+const firebaseApp = initializeApp({
+  apiKey: config.API_KEY,
+  authDomain: config.AUTH_DOMAIN,
+  databaseURL: config.DATABASE_URL,
+  storageBucket: config.STORAGE_BUCKET
+})
+const itemsRef = firebaseApp.database().ref('items')
+const connectedRef = firebaseApp.database().ref('.info/connected')
 
 export default class Groceries extends Component {
   constructor(props) {

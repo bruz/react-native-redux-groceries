@@ -6,7 +6,7 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "firebase": "2.4.2",
+    "firebase": "^3.1.0",
     "react": "^15.1.0",
     "react-native": "^0.29.0",
     "react-native-simple-store": "^1.0.1",

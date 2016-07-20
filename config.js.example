@@ -1,3 +1,7 @@
+// See https://firebase.google.com/docs/web/setup#project_setup
 module.exports = {
-  FIREBASE_ROOT: 'https://<YOUR-FIREBASE-APP>.firebaseio.com/'
+  API_KEY: "YOUR_API_KEY",
+  AUTH_DOMAIN: "YOUR_AUTH_DOMAIN",
+  DATABASE_URL: "YOUR_DATABASE_URL",
+  STORAGE_BUCKET: "YOUR_STORAGE_BUCKET"
 }

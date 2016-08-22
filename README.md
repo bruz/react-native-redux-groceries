@@ -17,7 +17,16 @@ Built and tested with:
 * Xcode 7.3
 * Android SDK
 
-A [Firebase](https://firebase.google.com) account is also needed.
+A [Firebase](https://firebase.google.com) account is also needed. The security rules for the database must be set to public, since this app doesn't implement authentication. In the [Firebase Console](https://firebase.google.com/console/) under the Database section, Rules tab, change the rules to:
+
+```javascript
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
 
 Run:
 

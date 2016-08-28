@@ -86,7 +86,7 @@ export default class Item extends Component {
 
     return (
       <Animated.View style={wrapperStyles}>
-        <View ref="wrapper">
+        <View ref="wrapper" collapsable={false}>
           <Animated.View style={animatedCardStyles} {...this._panResponder.panHandlers}>
             <View style={styles.row}>
               <Text style={styles.text}>

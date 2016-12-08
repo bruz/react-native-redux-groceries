@@ -1,6 +1,6 @@
 import {
-  ADD_ITEM,
-  REMOVE_ITEM,
+  ADD_ITEM_SUCCESS,
+  REMOVE_ITEM_SUCCESS,
   OFFLINE_ITEMS_LOADED,
   CONNECTION_CHECKING,
   CONNECTION_CHECKED,
@@ -19,7 +19,7 @@ export default function reducer(state = initialState, action) {
 
   console.log(action)
   switch (action.type) {
-  case ADD_ITEM:
+  case ADD_ITEM_SUCCESS:
     list = state.onlineList.concat([action.itemData]).sort((a, b) => b.time - a.time)
 
     return {
@@ -27,7 +27,7 @@ export default function reducer(state = initialState, action) {
       onlineList: list,
       offlineList: list
     }
-  case REMOVE_ITEM:
+  case REMOVE_ITEM_SUCCESS:
     list = state.onlineList.slice(0)
     const index = list.map(i => i.id).indexOf(action.id)
     list.splice(index, 1)

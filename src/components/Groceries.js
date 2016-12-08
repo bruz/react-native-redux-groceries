@@ -7,18 +7,7 @@ import {
   TextInput,
   View
 } from 'react-native'
-import { initializeApp } from 'firebase'
-import config from '../../config'
 import Item from './Item'
-
-const firebaseApp = initializeApp({
-  apiKey: config.API_KEY,
-  authDomain: config.AUTH_DOMAIN,
-  databaseURL: config.DATABASE_URL,
-  storageBucket: config.STORAGE_BUCKET
-})
-const itemsRef = firebaseApp.database().ref('items')
-const connectedRef = firebaseApp.database().ref('.info/connected')
 
 export default class Groceries extends Component {
   constructor(props) {
@@ -34,14 +23,6 @@ export default class Groceries extends Component {
 
     this.props.loadOfflineItems()
 
-    itemsRef.on('child_added', (snapshot) => {
-      this.props.addItem(snapshot.val())
-    })
-
-    itemsRef.on('child_removed', (snapshot) => {
-      this.props.removeItem(snapshot.val().id)
-    })
-
     if (NetInfo) {
       NetInfo.isConnected.fetch().done(isConnected => {
         if (isConnected) {
@@ -53,14 +34,6 @@ export default class Groceries extends Component {
     } else {
       this.props.checkConnection()
     }
-
-    connectedRef.on('value', snap => {
-      if (snap.val() === true) {
-        this.props.goOnline()
-      } else {
-        this.props.goOffline()
-      }
-    })
   }
 
   renderRow(rowData) {
@@ -73,22 +46,14 @@ export default class Groceries extends Component {
   }
 
   _add() {
-    const id = Math.random().toString(36).substring(7)
-    const itemRef = itemsRef.child(id)
-
-    itemRef.set({
-      id,
-      title: this.state.newItem,
-      time: new Date().getTime()
-    })
+    this.props.addItem(this.state.newItem);
 
     this.setState({newItem: ''})
-
     setTimeout(() => this.refs.newItem.focus(), 1)
   }
 
   _remove(id) {
-    itemsRef.child(id).remove()
+    this.props.removeItem(id)
   }
 
   render() {

@@ -1651,7 +1651,7 @@ find-up@^2.0.0:
   dependencies:
     locate-path "^2.0.0"
 
-firebase@^4.1.5:
+firebase@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.7.0.tgz#31bf2f52adae0a5ca098a63532a3626c0ae09877"
   dependencies:
@@ -3107,7 +3107,7 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-redux@^5.0.5:
+react-redux@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
   dependencies:

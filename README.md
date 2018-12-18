@@ -13,8 +13,8 @@ A simple grocery list app using React Native, Redux, Firebase, and Async Storage
 Built and tested with:
 
 * OS X / macOS
-* Node 7
-* Xcode 8
+* Node 10
+* Xcode 10
 * Android SDK
 
 A [Firebase](https://firebase.google.com) account is also needed. The security rules for the database must be set to public, since this app doesn't implement authentication. In the [Firebase Console](https://firebase.google.com/console/) under the Database section, Rules tab, change the rules to:

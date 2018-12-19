@@ -3,12 +3,7 @@ import { addItemSuccess, removeItemSuccess, goOnline, goOffline } from './action
 
 import config from '../config'
 
-const firebaseApp = initializeApp({
-  apiKey: config.API_KEY,
-  authDomain: config.AUTH_DOMAIN,
-  databaseURL: config.DATABASE_URL,
-  storageBucket: config.STORAGE_BUCKET
-})
+const firebaseApp = initializeApp(config)
 export const itemsRef = firebaseApp.database().ref('items')
 const connectedRef = firebaseApp.database().ref('.info/connected')
 

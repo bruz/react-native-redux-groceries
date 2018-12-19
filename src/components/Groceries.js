@@ -37,7 +37,6 @@ export default class Groceries extends Component {
   }
 
   renderRow(rowData) {
-    console.log(this.props.connected)
     return (
       <Item name={rowData.title}
             removable={this.props.connected}
@@ -57,8 +56,6 @@ export default class Groceries extends Component {
   }
 
   render() {
-    console.log('PROPS!')
-    console.log(this.props)
     let items, readonlyMessage
     if (this.props.connected) {
       items = this.props.onlineItems

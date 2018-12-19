@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import reducer from '../reducers'
 import syncOffline from './syncOffline'
-import { syncFirebase } from '../firebase'
+import syncFirebase from '../syncFirebase'
 
 export default function configureStore(initialState) {
   const store = createStore(
